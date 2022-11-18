@@ -14,6 +14,8 @@
   items:
   - name: Create a Virtual Machine with Unreal Engine
     href: create-game-development-vm-for-unreal.md
+  - name: Create a Virtual Machine with No Game Engine Installed
+    href: create-game-development-vm-with-no-engine
   - name: Create a Virtual Machine with an ARM template
     href: create-game-development-vm-arm-template.md
   - name: Create a Virtual Machine with a Bicep template
