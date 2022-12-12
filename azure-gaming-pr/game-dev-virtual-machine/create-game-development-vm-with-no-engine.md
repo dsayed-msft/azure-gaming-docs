@@ -1,6 +1,6 @@
 ---
 title: Create a Game Development Virtual Machine with no game engine installed
-description: Get up and running with a Windows 10 or Server 2019 Game Development Virtual Machine that common game development tools pre-installed.
+description: Get up and running with a Windows 10 or Server 2019 Game Development Virtual Machine that includes common game development tools pre-installed. 
 author: cshea15
 ms.topic: quickstart
 ms.date: 12/1/2022
@@ -105,7 +105,7 @@ On the **Review + create** tab, ensure validation passes and review the informat
 
 Select **Create**.
 
-Once the VM is deployed, RDP directly to the VM and install your engine
+Once the VM is deployed, RDP directly to the VM and install your engine of choice.
 
 > [!NOTE]
 >  
