@@ -105,6 +105,8 @@ On the **Review + create** tab, ensure validation passes and review the informat
 
 Select **Create**.
 
+Once the VM is deployed, RDP directly to the VM and install your engine
+
 > [!NOTE]
 >  
 >- There is no additional charge for the software that comes pre-loaded on the virtual machine. You do pay the compute cost for the VM size that you chose in the  **Size**  step. If you choose Teradici or Parsec as your remote access tool, you bring your own license to the VM on Azure.
@@ -136,5 +138,6 @@ When no longer needed, you can delete the resource group, virtual machine, and a
 ## Next steps
 
 - Explore the tools on the Game Dev VM by opening the **Start** menu.
+- Learn about customizing a [Game Dev VM](./customized-game-dev-vm.md)
 - Learn about game development on Azure by reading [Azure for Gaming](/gaming/azure/) and trying out tutorials.
 - Read more about the [Game Development Virtual Machine](./overview.md).
