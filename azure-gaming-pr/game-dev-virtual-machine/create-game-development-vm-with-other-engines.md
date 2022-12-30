@@ -1,5 +1,5 @@
 ---
-title: Create a Game Development Virtual Machine with no game engine installed
+title: Create a Game Development Virtual Machine with other Game Engines
 description: Get up and running with a Windows 10 or Server 2019 Game Development Virtual Machine that includes common game development tools pre-installed. 
 author: cshea15
 ms.topic: quickstart
@@ -7,9 +7,9 @@ ms.date: 12/1/2022
 ms.author: chashea
 ms.prod: azure-gaming
 ---
-# Quickstart: Create a Game Development Virtual Machine
+# Quickstart: Create a Game Development Virtual Machine with other Game Engines
 
-Get up and running with a Windows 10 or Windows Server 2019 Game Development Virtual Machine which has common game development tools pre-installed and you can install your own engine.
+If you don't need have an Unreal Engine pre-installed, you can still leverage the Game Development Virtual Machine with either Windows 10 or Windows Server 2019 that bundles common game development tools, and then install your game engine of choice after deploying this VM. Some popular game engines in the market which are worth mentioning but not limited to are: [CryENGINE](https://www.cryengine.com/),  [GameMaker](https://gamemaker.io/en), [Godot](https://godotengine.org/), [O3DE](https://www.o3de.org/), and [Unity](https://unity.com/).
 
 ## Prerequisites
 
@@ -47,9 +47,6 @@ On the **Game Development Tools** tab complete the following information, then s
 | Perforce Depot | Connect to and sync a Perforce depot if you already have a Perforce Helix Core version control server in place. Learn more [Integrate with a Perforce Depot](/integrate-perforce-depot.md) |
 | Game SDK Installed  | Choose which version of GDK to install, Xbox console development, there will need to be additional [steps to enable this development](/gaming/gdk/_content/gc/tools-console/gc-tools-console-toc.md), as specified in the NDA developer program |
 | Incredibuild | To install Incredibuild select the free trial or upload the license |
-
-> [!NOTE]
-> A dedicated Azure data disk will be created and connected to the VM. This disk has a volume of 255GB with drive letter E and saves all the game engine files. You will be able to add more data disks in the **Data Storage** section.
 
 On the **Remote Access Configuration** tab complete the following information, then select **Next: VM Network >**:
 
@@ -126,6 +123,16 @@ After the VM is created and provisioned, there are three methods to access this 
 > You may see a command prompt window pop up which shows the Microsoft GDK or other components are being installed in the background. This may take up to 10 minutes. You can safely ignore it but leave the window open, as it will automatically close once all the tasks are finished.
 
 Alternatively, you can follow the steps to remote into the Game Development Virtual Machine with either [Teradici](./remote-to-vm-with-teradici.md) or [Parsec](./remote-to-vm-with-parsec.md) depending on your chosen method of remote access technology.
+
+## Install the Game Engine of your choice
+
+After you access the Game Dev VM, you can install your preferred game engine on this machine. The following are the instructions from different game engine pages that you can start with. Each game engine has rich learning resources and supportive communities that will help you grow your game development skills.
+
+CryENGINE: [CRYENGINE Setup and Installation](https://www.cryengine.com/tutorials/view/sandbox-and-setup/setup-and-installation)
+GameMaker: [Getting Started with GameMaker](https://gamemaker.io/en/tutorials)
+Godot: [Introduction to Godot](https://docs.godotengine.org/en/stable/getting_started/introduction/index.html)
+O3DE: [Installing O3DE for Windows](https://www.o3de.org/docs/welcome-guide/setup/installing-windows/)
+Unity: [Install the Unity Hub and Editor](https://learn.unity.com/tutorial/install-the-unity-hub-and-editor)
 
 ## Clean up resources
 
