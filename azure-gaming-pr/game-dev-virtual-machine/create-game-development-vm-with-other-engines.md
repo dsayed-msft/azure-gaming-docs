@@ -128,11 +128,11 @@ Alternatively, you can follow the steps to remote into the Game Development Virt
 
 After you access the Game Dev VM, you can install your preferred game engine on this machine. The following are the instructions from different game engine pages that you can start with. Each game engine has rich learning resources and supportive communities that will help you grow your game development skills.
 
-CryENGINE: [CRYENGINE Setup and Installation](https://www.cryengine.com/tutorials/view/sandbox-and-setup/setup-and-installation)
-GameMaker: [Getting Started with GameMaker](https://gamemaker.io/en/tutorials)
-Godot: [Introduction to Godot](https://docs.godotengine.org/en/stable/getting_started/introduction/index.html)
-O3DE: [Installing O3DE for Windows](https://www.o3de.org/docs/welcome-guide/setup/installing-windows/)
-Unity: [Install the Unity Hub and Editor](https://learn.unity.com/tutorial/install-the-unity-hub-and-editor)
+- CryENGINE: [CRYENGINE Setup and Installation](https://www.cryengine.com/tutorials/view/sandbox-and-setup/setup-and-installation)
+- GameMaker: [Getting Started with GameMaker](https://gamemaker.io/en/tutorials)
+- Godot: [Introduction to Godot](https://docs.godotengine.org/en/stable/getting_started/introduction/index.html)
+- O3DE: [Installing O3DE for Windows](https://www.o3de.org/docs/welcome-guide/setup/installing-windows/)
+- Unity: [Install the Unity Hub and Editor](https://learn.unity.com/tutorial/install-the-unity-hub-and-editor)
 
 ## Clean up resources
 
