@@ -44,7 +44,7 @@ On the **Game Development Tools** tab complete the following information, then s
 | Parameters | Value/Description |
 |--|--|
 | Game Engine | Choose No game engine installed |
-| Perforce Depot | Connect to and sync a Perforce depot if you already have a Perforce Helix Core version control server in place. Learn more [Integrate with a Perforce Depot](/integrate-perforce-depot.md) |
+| Perforce Depot | Connect to and sync a Perforce depot if you already have a Perforce Helix Core version control server in place. Learn more [Integrate with a Perforce Depot](./integrate-perforce-depot.md) |
 | Game SDK Installed  | Choose which version of GDK to install, Xbox console development, there will need to be additional [steps to enable this development](/gaming/gdk/_content/gc/tools-console/gc-tools-console-toc.md), as specified in the NDA developer program |
 | Incredibuild | To install Incredibuild select the free trial or upload the license |
 
