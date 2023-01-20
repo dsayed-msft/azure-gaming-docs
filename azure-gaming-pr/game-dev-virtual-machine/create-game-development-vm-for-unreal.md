@@ -118,7 +118,7 @@ After the VM is created and provisioned, there are three methods to access this 
 
 **Method 1:** RDP. This remote method is always available.
 
-1. Follow the steps listed to [connect and sign on to Azure-based virtual machine](/azure/virtual-machines/windows/connect-logon.md). Use the credentials that you configured when created this virtual machine before. If you enable AAD for this VM, you can also use your corporate credentials for RDP access [if you meet the requirements](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#requirements.md).  
+1. Follow the steps listed to [connect and sign on to Azure-based virtual machine](/azure/virtual-machines/windows/connect-rdp). Use the credentials that you configured when created this virtual machine before. If you enable AAD for this VM, you can also use your corporate credentials for RDP access [if you meet the requirements](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#requirements.md).  
 
 1. Once you sign on to the VM, you'll be prompted immediately to accept Epic Games store End User License Agreement (EULA). If your Epic Games account has already accepted the latest EULA agreement, there is no need to accept it again, and you will be redirected to the desktop after your Epic Games account is authenticated. This is a one-time step when first deploying a new game development VM, and you don’t need repeat this step when you access this VM again.
 
