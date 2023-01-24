@@ -12,6 +12,24 @@ ms.prod: azure-gaming
 
 With the Game Development Virtual Machine, game developers have a workstation in the cloud, leveraging the most powerful GPU machines to meet the high-performance requirements of game development. In this document we discuss how to determine which GPU SKU is right for you. Currently the Azure Game Development Virtual Machine supports four families of [GPU – accelerated compute](/azure/virtual-machines/sizes-gpu) SKUs, which are the [NV-series](/azure/virtual-machines/nv-series),  [NVv3-series](/azure/virtual-machines/nvv3-series), [NCasT4_v3-series](/azure/virtual-machines/nct4-v3-series) and [NVadsA10 v5-series](/azure/virtual-machines/nva10v5-series). Because they support [NVIDIA GRID drivers](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) that are used for 3D applications and content with virtual desktop infrastructure (VDI) solution in the cloud. Please refer to the respective documentation for detailed specifications of each VM series. The Azure VM family is growing, with more powerful GPU virtual machine SKUs on the Azure roadmap. As new GPU SKUs are released, the Game Development Virtual Machine will support them once they’re available.
 
+## GPU Quota on Azure
+
+Before creating Game Development Virtual Machines (VMs) that use high demand GPUs, check that you have the requested quota for the desired GPU SKU. Otherwise, you'll receive a quota error when deploying the VM.
+
+A quick way to validate if you have quota in a specific region is to use the Azure command-line interface (Azure CLI) to run the following commands.
+
+1. See [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart) for instructions to start the Cloud Shell and select the Bash environment.
+1. Use **az account** to change the context of the bash session, if needed.
+1. Run the following [az vm list-usage](/azure/virtual-machines/linux/cli-manage) command to list the GPU quota in the US West region.
+
+```azurecli-interactive
+az account show
+az vm list-usage -l westus -o table | grep "Name\b\|---\|\(NV\|NVSv3\|NCASv3_T4\|A10v5\)\b" | (sed -u 2q; sort)
+```
+
+**TIP:**
+If you are an independent game developer or startup interested in working with the Game Development VM, we strongly recommend that you join the[ID@Azure](https://www.azure.com/id) program. This program provides free access to developer tools and support from industry experts. If you have questions, see [Troubleshooting and Support](/azure/game-dev-virtual-machine/troubleshoot-support) or reach out to us on Game Dev VM [Discord Channel](https://aka.ms/gamedevVMdiscord).
+
 ## Determining the right GPU SKU to use
 
 When trying to decide the right GPU SKU to use when deploying the Game Development Virtual Machine, there are a few factors that you’ll want to consider when ensuring the chosen GPU SKU meets your requirements. These are performance, capabilities (i.e., ray tracing requirements), region availability/capacity and price requirements. Let’s review each of these factors to help inform your decision on the right GPU SKU for your specific needs.
