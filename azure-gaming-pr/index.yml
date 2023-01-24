@@ -70,16 +70,16 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-        - text: Cognitive Services
-          url: reference-architectures/cognitive.md
+        - text: Azure Cognitive Services
+          url: ai/azure-cognitive-services.md
         - text: Content Moderation
-          url: reference-architectures/cognitive-content-moderation.md
+          url: ai/azure-cognitive-services.md
         - text: Text Translation
-          url: reference-architectures/cognitive-text-translation.md
-        - text: Text to Speech
-          url: reference-architectures/cognitive-text-to-speech.md
-        - text: Speech to Text
-          url: reference-architectures/cognitive-speech-to-text.md
+          url: ai/azure-cognitive-services.md
+        - text: Text-to-Speech
+          url: ai/azure-cognitive-services.md
+        - text: Speech-to-Text
+          url: ai/azure-cognitive-services.md
 
 # Game streaming
   - title: Game streaming
