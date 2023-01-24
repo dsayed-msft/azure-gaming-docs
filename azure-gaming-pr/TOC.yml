@@ -55,18 +55,8 @@
         href: reference-architectures/azurecloudbuilds-9-troubleshooting.md
   - name: AI in Games
     items:
-    - name: Cognitive Services
-      href: reference-architectures/cognitive.md
-    - name: Content Moderation
-      href: reference-architectures/cognitive-content-moderation.md
-    - name: Text translation
-      href: reference-architectures/cognitive-text-translation.md
-    - name: Text to Speech
-      href: reference-architectures/cognitive-text-to-speech.md
-    - name: Speech to Text
-      href: reference-architectures/cognitive-speech-to-text.md
-    - name: Customer service bot
-      href: reference-architectures/cognitive-css-bot.md
+    - name: Azure Cognitive Services
+      href: ai/azure-cognitive-services.md
   - name: Game server hosting
     items:
     - name: Game Server hosting basics
