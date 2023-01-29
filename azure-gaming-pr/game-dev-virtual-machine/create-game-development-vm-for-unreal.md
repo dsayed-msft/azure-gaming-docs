@@ -1,21 +1,21 @@
 ---
 title: Create a Game Development Virtual Machine with Unreal Engine
-description: Get up and running with a Windows 10 or Server 2019 Game Development Virtual Machine that common game development tools pre-installed.
+description: Get up and running with a Windows 11 or Server 2022 Game Development Virtual Machine that common game development tools pre-installed.
 author: cshea15
 ms.topic: quickstart
-ms.date: 11/18/2022
+ms.date: 01/31/2023
 ms.author: chashea
 ms.prod: azure-gaming
 ---
 # Quickstart: Create a Game Development Virtual Machine with Unreal Engine
 
-Get up and running with a Windows 10 or Windows Server 2019 Game Development Virtual Machine which has Unreal Engine and other common game development tools pre-installed. Unreal Engine is an incredibly powerful and advanced real-time 3D creation tool for photorealistic visuals and immersive experiences.
+Get up and running with a Windows 11 or Windows Server 2022 Game Development Virtual Machine which has Unreal Engine and other common game development tools pre-installed. Unreal Engine is an incredibly powerful and advanced real-time 3D creation tool for photorealistic visuals and immersive experiences.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.com/free). Please note Azure free accounts do not support GPU enabled virtual machine SKUs. To understand what Azure subscriptions support GPU SKUs, please refer to this <a href="./offer-types.md" target="_blank">offer types chart</a>.
 - An [Epic Games account](https://www.epicgames.com/id/login) to accept Epic Games store End User License Agreement after signing in to this VM.
-- Multi-tenant Hosting Rights for Windows 10 is required. Verify you have an [eligible Windows 10 subscription license](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment#subscription-licenses-that-qualify-for-multitenant-hosting-rights) or a [Visual Studio subscription](/azure/virtual-machines/windows/client-images) for dev/test scenarios.
+- Multi-tenant Hosting Rights for Windows 11 is required. Verify you have an [eligible Windows 11 subscription license](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment#subscription-licenses-that-qualify-for-multitenant-hosting-rights) or a [Visual Studio subscription](/azure/virtual-machines/windows/client-images) for dev/test scenarios.
 
 ## Deploy your Game Development Virtual Machine
 
@@ -36,9 +36,10 @@ On the **Basics** tab, complete the following information, then select **Next: G
 | Region | Select the Azure region that's most appropriate. For the best user experience choose the Azure Region closest to the users. Learn more about [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/) |
 | Use as a build server | This is optional. If you do not expect to use 3D applications or work with 3D content on this VM, instead you want to use it for game build purpose, as illustrated in this [build servers example](/azure-gaming-pr/game-dev-virtual-machine/overview.md#using-as-build-servers), you can check this box. It gives you more VM size options since GPU is not required |
 | VM Size | This VM currently supports the sizes [NV](/azure/virtual-machines/nv-series.md), [NVv3](/azure/virtual-machines/nvv3-series.md),[T4](/azure/virtual-machines/nct4-v3-series.md),[A10](/azure/virtual-machines/nva10v5-series.md). Choose a size that is appropriate for your workload. Read more about choosing the right GPU SKU size. |
+| Azure Spot VM | Select the checkbox to choose [Spot VM](/azure/virtual-machines/spot-vms) |
 | Virtual machine name | Enter the name of the virtual machine |
 | Admin Creds | Enter the local username and password |
-| Operating System | Windows 10 or Windows Server 19 |
+| Operating System | Windows 11 or Windows Server 22 |
 
 On the **Game Development Tools** tab complete the following information, then select **Next Remote Access Configuration >**:
 
