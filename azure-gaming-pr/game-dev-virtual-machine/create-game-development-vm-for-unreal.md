@@ -36,7 +36,7 @@ On the **Basics** tab, complete the following information, then select **Next: G
 | Region | Select the Azure region that's most appropriate. For the best user experience choose the Azure Region closest to the users. Learn more about [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/) |
 | Use as a build server | This is optional. If you do not expect to use 3D applications or work with 3D content on this VM, instead you want to use it for game build purpose, as illustrated in this [build servers example](/azure-gaming-pr/game-dev-virtual-machine/overview.md#using-as-build-servers), you can check this box. It gives you more VM size options since GPU is not required |
 | VM Size | This VM currently supports the sizes [NV](/azure/virtual-machines/nv-series.md), [NVv3](/azure/virtual-machines/nvv3-series.md),[T4](/azure/virtual-machines/nct4-v3-series.md),[A10](/azure/virtual-machines/nva10v5-series.md). Choose a size that is appropriate for your workload. Read more about choosing the right GPU SKU size. |
-| Azure Spot VM | Select the checkbox to choose [Spot VM](/azure/virtual-machines/spot-vms) |
+| Azure Spot VM | Select the checkbox to choose Spot VM. Learn more about [Spot VM](/azure/virtual-machines/spot-vms) before choosing the option. |
 | Virtual machine name | Enter the name of the virtual machine |
 | Admin Creds | Enter the local username and password |
 | Operating System | Windows 11 or Windows Server 22 |
