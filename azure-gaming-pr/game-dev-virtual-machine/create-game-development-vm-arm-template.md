@@ -57,8 +57,14 @@ version=5_0_1 &&
 templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/azure-gamedev/gamedev-vm/azuredeploy.json" && 
 az vm image terms accept --urn "microsoft-azure-gaming:game-dev-vm:$osType"_"$engine"_"$version:latest" && 
 az group create --name $resourceGroupName --location "$location" && 
-az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --parameters administratorLogin=$adminName -p passwordAdministratorLogin=$adminPass -p osType=$osType -p gameEngine="ue_"$version && 
-echo "Press [ENTER] to continue ..." && 
+az deployment group create \
+    --resource-group $resourceGroupName \
+    --template-uri $templateUri \
+    -p adminName=$adminName \
+    -p adminPass=$adminPass \
+    -p osType=$osType \
+    -p gameEngine="ue_"$version &&
+echo "Press [ENTER] to continue ..." &&
 read 
 ```
 
@@ -78,7 +84,13 @@ read -p "Enter the Unreal Engine version (e.g., 4_27_2 or 5_0_1):" version &&
 templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/azure-gamedev/gamedev-vm/azuredeploy.json" && 
 az vm image terms accept --urn "microsoft-azure-gaming:game-dev-vm:$osType"_"$engine"_"$version:latest" && 
 az group create --name $resourceGroupName --location "$location" && 
-az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --parameters administratorLogin=$adminName -p passwordAdministratorLogin=$adminPass -p osType=$osType -p gameEngine="ue_"$version && 
+az deployment group create \
+    --resource-group $resourceGroupName \
+    --template-uri $templateUri \
+    -p adminName=$adminName \
+    -p adminPass=$adminPass \
+    -p osType=$osType \
+    -p gameEngine="ue_"$version && 
 echo "Press [ENTER] to continue ..." && 
 read 
 ```
