@@ -11,6 +11,9 @@ ms.prod: azure-gaming
 
 Get up and running with a Windows 11 or Windows Server 2022 Game Development Virtual Machine which has Unreal Engine and other common game development tools pre-installed. Unreal Engine is an incredibly powerful and advanced real-time 3D creation tool for photorealistic visuals and immersive experiences.
 
+> [!NOTE]
+> Game Dev VM supports Windows 10 and Windows Server 2019 too, although those two operating systems are not displayed on the Azure portal. You can still deploy them using ARM template. Please refer to <a href="./create-game-development-vm-arm-template.md" target="_blank">Create a Virtual Machine with an ARM template</a> for steps.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.com/free). Please note Azure free accounts do not support GPU enabled virtual machine SKUs. To understand what Azure subscriptions support GPU SKUs, please refer to this <a href="./offer-types.md" target="_blank">offer types chart</a>.
@@ -45,7 +48,7 @@ On the **Game Development Tools** tab complete the following information, then s
 
 | Parameters | Value/Description |
 |--|--|
-| Game Engine | Choose which version of Unreal Engine to install |
+| Game Engine | Choose which version of Unreal Engine to install. If you don't need install any game engine from the list, you can choose <a href="./create-game-development-vm-with-other-engines.md" target="_blank">No game engine installed</a> option. |
 | Unreal Pixel Stream | VM supports [Unreal Pixel Streaming](https://docs.unrealengine.com/4.27/SharingAndReleasing/PixelStreaming/). You can check the box if you want to enable this feature, which opens the required ports |
 | Perforce Depot | Connect to and sync a Perforce depot if you already have a Perforce Helix Core version control server in place. Learn more [Integrate with a Perforce Depot](/integrate-perforce-depot.md) |
 | Game SDK Installed  | Choose which version of GDK to install, Xbox console development, there will need to be additional [steps to enable this development](/gaming/gdk/_content/gc/tools-console/gc-tools-console-toc.md), as specified in the NDA developer program |
