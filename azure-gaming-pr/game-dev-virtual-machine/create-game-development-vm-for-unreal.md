@@ -12,7 +12,7 @@ ms.prod: azure-gaming
 Get up and running with a Windows 11 or Windows Server 2022 Game Development Virtual Machine which has Unreal Engine and other common game development tools pre-installed. Unreal Engine is an incredibly powerful and advanced real-time 3D creation tool for photorealistic visuals and immersive experiences.
 
 > [!NOTE]
-> Game Dev VM supports Windows 10 and Windows Server 2019 too, although those two operating systems are not displayed on the Azure portal. You can still deploy them using ARM template. Please refer to <a href="./create-game-development-vm-arm-template.md" target="_blank">Create a Virtual Machine with an ARM template</a> for steps.
+> Game Dev VM supports Windows 10 and Windows Server 2019 too, and can be deployed via ARM template. Please refer to <a href="./create-game-development-vm-arm-template.md" target="_blank">Create a Virtual Machine with an ARM template</a> for steps.
 
 ## Prerequisites
 
