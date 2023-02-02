@@ -27,7 +27,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this Quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/gamedev-vm/).
+The template used in this Quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/gamedev-vm/).
 
 You can view the details of ARM template JSON from [this GitHub repository](https://github.com/Azure/azure-quickstart-templates/blob/master/application-workloads/azure-gamedev/gamedev-vm/azuredeploy.json).  
 
