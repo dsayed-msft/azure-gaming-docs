@@ -48,7 +48,7 @@ On the **Game Development Tools** tab complete the following information, then s
 
 | Parameters | Value/Description |
 |--|--|
-| Game Engine | Choose which version of Unreal Engine to install. If you don't need install any game engine from the list, you can choose <a href="./create-game-development-vm-with-other-engines.md" target="_blank">No game engine installed</a> option. |
+| Game Engine | Choose which version of Unreal Engine to install. Please note that Unreal Engine 5.1 is in preview on Game Dev VM with a <a href="./known-issues.md/#prompted-warning-about-issues-with-graphic-driver" target="_blank">graphics driver version warning</a> which you can safely ignore. If you don't need install any game engine from the list, you can choose <a href="./create-game-development-vm-with-other-engines.md" target="_blank">No game engine installed</a> option. |
 | Unreal Pixel Stream | VM supports [Unreal Pixel Streaming](https://docs.unrealengine.com/4.27/SharingAndReleasing/PixelStreaming/). You can check the box if you want to enable this feature, which opens the required ports |
 | Perforce Depot | Connect to and sync a Perforce depot if you already have a Perforce Helix Core version control server in place. Learn more [Integrate with a Perforce Depot](/integrate-perforce-depot.md) |
 | Game SDK Installed  | Choose which version of GDK to install, Xbox console development, there will need to be additional [steps to enable this development](/gaming/gdk/_content/gc/tools-console/gc-tools-console-toc.md), as specified in the NDA developer program |
