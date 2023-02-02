@@ -64,6 +64,11 @@ You may see certain error message when you start 3D application on the Game Dev 
 
 This is possibly because you intended to use this VM as a build server when you first deployed it. Therefore, the VM size you chose before didn't fall into [NV-series](/azure/virtual-machines/nv-series),  [NVv3-series](/azure/virtual-machines/nvv3-series) or [NCasT4_v3-series](/azure/virtual-machines/nct4-v3-series). Only these VM sizes support 3D applications and 3D content editing. Please check your VM size and redeploy with correct one which has GPU. You can still keep this VM for your build server as you originally planned.  
 
+### Prompted warning about issues with graphic driver 
+
+You may see a window pop up with message starts with *"The installed version of the NVIDIA graphics driver has known issues in D3D12."* 
+This only happens when you run Unreal 5.1 engine which is still in preview on Game Dev VM. You can safely ignore that window and click "No" button to not install the recommended driver. 
+
 ### Slow performance when opening a project with Unreal Engine during compiling shaders
 
 You may experience a long wait to open an Unreal Engine project and see the slow progress of compiling shaders.
