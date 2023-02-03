@@ -107,7 +107,7 @@ On the **Advanced** tab complete the following information, then select **Next: 
 
 On the **Tags** tab, complete the following information then select **Next: Review + create >**
 
-Tags are used to categorize resources, usually for billing management purposes. If you don't need tags now, you can skip this page and check out [resource tagging](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging.md) to learn more. 
+Tags are used to categorize resources, usually for billing management purposes. If you don't need tags now, you can skip this page and check out [resource tagging](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging.md) to learn more.
 
 On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment. If the validation has failed, review the previous sections.
 

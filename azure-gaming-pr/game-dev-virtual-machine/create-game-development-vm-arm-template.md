@@ -27,7 +27,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this Quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/gamedev-vm/).
+The template used in this Quickstart is from [Azure Quickstart Templates](/azure/azure-quickstart-templates/gamedev-vm/).
 
 You can view the details of ARM template JSON from [this GitHub repository](https://github.com/Azure/azure-quickstart-templates/blob/master/application-workloads/azure-gamedev/gamedev-vm/azuredeploy.json).  
 
@@ -94,6 +94,25 @@ When you run the above command, enter:
 1. The game engine version.
 
 Here is the list of all the available Game Dev VM images:
+
+| Image Description | osType | engine | version | Azure Portal | ARM |
+| --- | --- | ---| --- | --- | --- |
+| Win11 with UE5 | win11 | unreal | 5_0 | Y | Y |
+| Win11 with UE5.1 | win11| unreal | 5_1 | Y | Y |
+| Win11 without UE | win11 | no_engine | 1_0 | Y | Y |
+| Svr22 with UE5 | ws2022 | unreal | 5_0 | Y | Y |
+| Svr22 with UE5.1 | ws2022 | unreal | 5_1 | Y | Y |
+| Svr22 without UE | ws2022 | no_engine | 1_0 | Y | Y |
+| Win10 with UE5.0.1 | win10 | unreal | 5_0_1 | N | Y |
+| Win10 with UE5| win10| unreal| 5_0 | N | Y |
+| Win10 with UE4.27.2 | win10| unreal| 4_27_2 | N | Y |
+| Win10 with UE4.27 | win10 | unreal | 4_27 | N | Y
+| Win10 without UE | win10 | no_engine | 1_0 | N | Y
+| Svr19 with UE5.0.1 | ws2019 | unreal | 5_0_1 | N | Y |
+| Svr19 with UE5 | ws2019 | unreal | 5_0 | N | Y |
+| Svr19 with UE4.27.2 | ws2019| unreal | 4_27_2 | N | Y |
+| Svr19 with UE4.27 | ws2019 | unreal | 4_27 | N | Y |
+| Svr19 without UE | ws2019 | no_engine | 1_0 | N | Y |
 
 ## Review the deployed resources
 
