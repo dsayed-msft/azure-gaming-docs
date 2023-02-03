@@ -87,7 +87,9 @@ On the **Data Storage** tab complete the following information, then select **Ne
 | Azure Storage File Share Configuration | Click the check box if you need to mount an exisiting azure file share |
 
 > [!NOTE]
-> If you don’t want to use the striped disk, please set the number of data disks to be 1. If you don’t want to attach a data disk at all, please set the number to be 0. This VM will still have an OS disk and a temporary data disk as the default configuration.It is highly recommended to choose at least 2 disks that will be striped together for the best IOPS performance, and to install your source control and game projects on that drive for the best experience and available space on the VM. The C drive defaults to 256GB and could quickly run out of space for medium to large projects.
+>
+> - If you don’t want to use the striped disk, please set the number of data disks to be 1. If you don’t want to attach a data disk at all, please set the number to be 0. This VM will still have an OS disk and a temporary data disk as the default configuration.
+> - It is highly recommended to choose at least 2 disks that will be striped together for the best IOPS performance, and to install your source control and game projects on that drive for the best experience and available space on the VM. The C drive defaults to 256GB and could quickly run out of space for medium to large projects.
 
 On the **Management** tab complete the following information, then select **Next: Advanced >**:
 
