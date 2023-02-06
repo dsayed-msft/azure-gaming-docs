@@ -1,6 +1,6 @@
 ---
 title: Create a Game Development Virtual Machine with other Game Engines
-description: Get up and running with a Windows 10 or Server 2019 Game Development Virtual Machine that includes common game development tools pre-installed. 
+description: Get up and running with a Windows 11 or Server 2022 Game Development Virtual Machine that includes common game development tools pre-installed. 
 author: cshea15
 ms.topic: quickstart
 ms.date: 12/1/2022
@@ -9,12 +9,15 @@ ms.prod: azure-gaming
 ---
 # Quickstart: Create a Game Development Virtual Machine with other game engines
 
-If you don't need have an Unreal Engine pre-installed, you can still leverage the Game Development Virtual Machine with either Windows 10 or Windows Server 2019 that bundles common game development tools, and then install your game engine of choice after deploying this VM. Some popular game engines in the market which are worth mentioning but not limited to are: [CryENGINE](https://www.cryengine.com/),  [GameMaker](https://gamemaker.io/en), [Godot](https://godotengine.org/), [O3DE](https://www.o3de.org/), and [Unity](https://unity.com/).
+If you don't need have an Unreal Engine pre-installed, you can still leverage the Game Development Virtual Machine with either Windows 11 or Windows Server 2022 that bundles common game development tools, and then install your game engine of choice after deploying this VM. Some popular game engines in the market which are worth mentioning but not limited to are: [CryENGINE](https://www.cryengine.com/),  [GameMaker](https://gamemaker.io/en), [Godot](https://godotengine.org/), [O3DE](https://www.o3de.org/), and [Unity](https://unity.com/).
+
+> [!NOTE]
+> Game Dev VM supports Windows 10 and Windows Server 2019 too, and can be deployed via ARM template. Please refer to <a href="./create-game-development-vm-arm-template.md" target="_blank">Create a Virtual Machine with an ARM template</a> for steps.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.com/free). Please note Azure free accounts do not support GPU enabled virtual machine SKUs. To understand what Azure subscriptions support GPU SKUs, please refer to this <a href="./offer-types.md" target="_blank">offer types chart</a>.
-- Multi-tenant Hosting Rights for Windows 10 is required. Verify you have an [eligible Windows 10 subscription license](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment#subscription-licenses-that-qualify-for-multitenant-hosting-rights) or a [Visual Studio subscription](/azure/virtual-machines/windows/client-images) for dev/test scenarios.
+- Multi-tenant Hosting Rights for Windows 11 is required. Verify you have an [eligible Windows 11 subscription license](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment#subscription-licenses-that-qualify-for-multitenant-hosting-rights) or a [Visual Studio subscription](/azure/virtual-machines/windows/client-images) for dev/test scenarios.
 
 ## Deploy your Game Development Virtual Machine
 
@@ -37,7 +40,7 @@ On the **Basics** tab, complete the following information, then select **Next: G
 | VM Size | This VM currently supports the sizes [NV](/azure/virtual-machines/nv-series.md), [NVv3](/azure/virtual-machines/nvv3-series.md),[T4](/azure/virtual-machines/nct4-v3-series.md),[A10](/azure/virtual-machines/nva10v5-series.md). Choose a size that is appropriate for your workload. Read more about choosing the right GPU SKU size. |
 | Virtual machine name | Enter the name of the virtual machine |
 | Admin Creds | Enter the local username and password |
-| Operating System | Windows 10 or Windows Server 19 |
+| Operating System | Windows 11 or Windows Server 22 |
 
 On the **Game Development Tools** tab complete the following information, then select **Next Remote Access Configuration >**:
 
