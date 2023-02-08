@@ -10,7 +10,7 @@ ms.prod: azure-gaming
 
 # Quickstart: Create a Game Development Virtual Machine using an ARM template
 
-Create an instance of the Game Development Virtual Machine using an Azure Resource manager (ARM) template. Game Development Virtual Machines are cloud-based virtual machines preloaded with a suite of software and tools for game development. When deployed on GPU-powered compute resources, all tools are configured to use the GPU.
+In addition to the portal deployment method that supports Windows 11 and Server 2022, you can also create an instance of the Game Development Virtual Machine using an Azure Resource manager (ARM) template which supports additional operating systems like Windows 10 and Server 2019 with different game engine versions. Game Development Virtual Machines are cloud-based virtual machines preloaded with a suite of software and tools for game development. When deployed on GPU-powered compute resources, all tools are configured to use the GPU.
 
 An ARM template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
 
@@ -27,7 +27,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this Quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/gamedev-vm/).
+The template used in this Quickstart is from [Azure Quickstart Templates](/azure/azure-quickstart-templates/gamedev-vm/).
 
 You can view the details of ARM template JSON from [this GitHub repository](https://github.com/Azure/azure-quickstart-templates/blob/master/application-workloads/azure-gamedev/gamedev-vm/azuredeploy.json).  
 
@@ -57,8 +57,14 @@ version=5_0_1 &&
 templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/azure-gamedev/gamedev-vm/azuredeploy.json" && 
 az vm image terms accept --urn "microsoft-azure-gaming:game-dev-vm:$osType"_"$engine"_"$version:latest" && 
 az group create --name $resourceGroupName --location "$location" && 
-az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --parameters administratorLogin=$adminName -p passwordAdministratorLogin=$adminPass -p osType=$osType -p gameEngine="ue_"$version && 
-echo "Press [ENTER] to continue ..." && 
+az deployment group create \
+    --resource-group $resourceGroupName \
+    --template-uri $templateUri \
+    -p adminName=$adminName \
+    -p adminPass=$adminPass \
+    -p osType=$osType \
+    -p gameEngine="ue_"$version &&
+echo "Press [ENTER] to continue ..." &&
 read 
 ```
 
@@ -78,7 +84,13 @@ read -p "Enter the Unreal Engine version (e.g., 4_27_2 or 5_0_1):" version &&
 templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/azure-gamedev/gamedev-vm/azuredeploy.json" && 
 az vm image terms accept --urn "microsoft-azure-gaming:game-dev-vm:$osType"_"$engine"_"$version:latest" && 
 az group create --name $resourceGroupName --location "$location" && 
-az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --parameters administratorLogin=$adminName -p passwordAdministratorLogin=$adminPass -p osType=$osType -p gameEngine="ue_"$version && 
+az deployment group create \
+    --resource-group $resourceGroupName \
+    --template-uri $templateUri \
+    -p adminName=$adminName \
+    -p adminPass=$adminPass \
+    -p osType=$osType \
+    -p gameEngine="ue_"$version && 
 echo "Press [ENTER] to continue ..." && 
 read 
 ```
@@ -92,6 +104,27 @@ When you run the above command, enter:
 1. The operating system of the VM.
 1. The game engine (currently only Unreal Engine is supported, but more may be added in the future).
 1. The game engine version.
+
+Here is the list of all the available Game Dev VM images:
+
+| Image Description | osType | engine | version | Azure Portal | ARM |
+| --- | --- | ---| --- | --- | --- |
+| Win11 with UE5 | win11 | unreal | 5_0 | Y | Y |
+| Win11 with UE5.1 | win11| unreal | 5_1 | Y | Y |
+| Win11 without UE | win11 | no_engine | 1_0 | Y | Y |
+| Svr22 with UE5 | ws2022 | unreal | 5_0 | Y | Y |
+| Svr22 with UE5.1 | ws2022 | unreal | 5_1 | Y | Y |
+| Svr22 without UE | ws2022 | no_engine | 1_0 | Y | Y |
+| Win10 with UE5.0.1 | win10 | unreal | 5_0_1 | N | Y |
+| Win10 with UE5| win10| unreal| 5_0 | N | Y |
+| Win10 with UE4.27.2 | win10| unreal| 4_27_2 | N | Y |
+| Win10 with UE4.27 | win10 | unreal | 4_27 | N | Y
+| Win10 without UE | win10 | no_engine | 1_0 | N | Y
+| Svr19 with UE5.0.1 | ws2019 | unreal | 5_0_1 | N | Y |
+| Svr19 with UE5 | ws2019 | unreal | 5_0 | N | Y |
+| Svr19 with UE4.27.2 | ws2019| unreal | 4_27_2 | N | Y |
+| Svr19 with UE4.27 | ws2019 | unreal | 4_27 | N | Y |
+| Svr19 without UE | ws2019 | no_engine | 1_0 | N | Y |
 
 ## Review the deployed resources
 
