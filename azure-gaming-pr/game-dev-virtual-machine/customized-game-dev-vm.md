@@ -29,7 +29,7 @@ The high-level flow for producing a customized image based on the Game Developme
 
 There are two main methods of deploying a Game Dev VM:
 
-1. Using the Azure Marketplace/Portal UI as per the [tutorial on creating a Game Development Virtual Machine with Unreal Engine](/gaming/azure/game-dev-virtual-machine/create-game-development-vm-for-unreal), or with [other game engines](/create-game-development-vm-with-other-engines.md), or
+1. Using the Azure Marketplace/Portal UI as per the [tutorial on creating a Game Development Virtual Machine with Unreal Engine](/gaming/azure/game-dev-virtual-machine/create-game-development-vm-for-unreal), or with [other game engines](create-game-development-vm-with-other-engines.md), or
 1. Leverage ARM and CLI to deploy from the [Azure Quickstart Templates library](/gaming/azure/game-dev-virtual-machine/create-game-development-vm-arm-template).
 
 :::image type="content" source="./media/customized-game-dev-vm/sysprep-setting.png" alt-text="Screenshot showing how to enable the VM to be used with sysprep":::
