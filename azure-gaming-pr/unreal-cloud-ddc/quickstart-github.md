@@ -25,7 +25,7 @@ In this section, you'll deploy an Unreal Cloud DDC solution to Azure using GitHu
 
 ### Create and configure with basic options
 
-* Go to the [GitHub Repository](https://github.com/microsoft/unreal-cloud-ddc-on-azure) and select **Use this Template**.
+* Go to the [GitHub Repository](https://github.com/microsoft/unreal-cloud-ddc-on-azure) and select **Use this Template** -> **Create a new repository**.
 
 ![Use the GitHub template](media/use-this-template.png)
 
@@ -33,7 +33,7 @@ In this section, you'll deploy an Unreal Cloud DDC solution to Azure using GitHu
 
 ![Create a new repo](media/create-new-repo.png)
 
-* Create a new Service Principal for the GitHub Actions automation following the steps [here](https://github.com/Azure/login#configure-a-service-principal-with-a-secret). The Service Principal will require Contributor and [Role-based access control (RBAC)](/azure/role-based-access-control/overview) Granter or Owner access to the resource group. This is done once for the repository.
+* For the newly created repository, create a new Service Principal for the GitHub Actions automation following the steps [here](https://github.com/Azure/login#configure-a-service-principal-with-a-secret). The Service Principal will require Contributor and [Role-based access control (RBAC)](/azure/role-based-access-control/overview) Granter or Owner access to the resource group. This is done once for the repository.
 
 ```azurecli-interactive
     az ad sp create-for-rbac \
@@ -43,26 +43,61 @@ In this section, you'll deploy an Unreal Cloud DDC solution to Azure using GitHu
         --sdk-auth
 ```
 
-* Create a new environment with the studio subscription. Add secret from the **application-id** created in the prior step as a secret **APP_SECRET** to the environment.
-* Commit a new parameters file into a new direction in the **configs** folder. The folder name in the **configs** folder should match the GitHub Env you wish to create.
+> [!IMPORTANT]
+> You must been using an Enterprise or Public Github Repo to use Environments. If you are using a personal private repo, you will need to customize the deployment workflows instead using uniquely named repository secrets for each deployment.
 
-Use this [sample configuration json file](https://github.com/microsoft/unreal-cloud-ddc-on-azure/blob/main/configs/studio/parameters.json) as reference. The file included the minimum settings required, but more settings may be added to customize the deployment.
+* Go to **Settings** (settings icon) > **Environments** > **Create a new environment** for the Studio's GitHub account that you're using for this new repo.
+Enter a new name for the environment. For example, "my-unreal-ddc-env". Remember the name used here as you'll be using it again later. You must have admin access to configure environments.
+  - Under **Environment secrets**, select **Add secret**. Enter **AZURE_CREDENTIALS** as the secret name and the JSON output of the previous step as the value.
+  - To add another secret, repeat the steps above. Enter **APP_SECRET** as the secret name and the secret from Worker SP you previously [created](quickstart-first-setup-id.md#create-a-worker-identity) as the value.
+* Go to the configs folder and create a new folder within it. The folder name here must match the GitHub environment name that you created earlier. If you've used the example above, the folder name here needs to be "my-unreal-ddc-env".
+  - In the new folder (For example, configs > my-unreal-ddc-env), add a new JSON file called **parameters.json**. Customize this JSON file according to your needs.
 
-Using **configs/Contoso/parameters.json** as an example. Open the file and update the following parameters.
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "southcentralus"
+        },
+        "resourceGroupName": {
+            "value": "studio-unreal-cloud-ddc",
+        },,
+        "servicePrincipalClientID": {
+            "value": "<application-sp-id>"
+        },
+        "workerServicePrincipalClientID": {
+            "value": "<worker-sp-id>"
+        },
+        "hostname":{
+            "value": "<my-studio-hostname>"
+        },
+        "secondaryLocations": {
+            "value": [
+                "westus"
+            ]
+        },
+        "epicEULA": {
+            "value": true
+        }
+    }
+}
+```
+
+Using **configs/my-unreal-ddc-env/parameters.json** as an example. Open the file and update the following parameters.
 
 1. Set your **location**
-1. Replace **servicePrincipalClientID** using the App ID created in the previous step.
-1. Replace **servicePrincipalObjectID** using the App Object ID created in the previous step.
+1. Replace **servicePrincipalClientID** using the App ID created in the previous [step](quickstart-first-setup-id.md#create-an-application-identity).
+1. Replace **workerServicePrincipalClientID** using the App Object ID created in the previous [step](quickstart-first-setup-id.md#create-a-worker-identity).
 1. Add the **hostname** which will be used as the endpoint to connect to Unreal Cloud DDC.
 1. List **secondaryLocations**, as additional regions to mirror the deployment.
-1. Set **epicEULA** to **True** to acknowledge that you're accepting the [Epic EULA](https://www.unrealengine.com/eula/content).
+1. Set **epicEULA** to **True** to acknowledge that you're accepting the [Unreal® Engine End User License Agreement](https://www.unrealengine.com/eula/content).
 
 > [!IMPORTANT]
 > You must set the `epicEULA` value to **TRUE** in this file to acknowledge that you have accepted the [Epic EULA](https://www.unrealengine.com/en-US/eula/content).
 
-![Create config](media/create-config.png)
-
-* After the parameters file has been committed, a GitHub action will automatically deploy the application into your Azure Subscription.
+After the parameters file has been committed, a GitHub action will automatically deploy the application into your Azure Subscription.
 
 ### View the Unreal Cloud DDC deployment
 
