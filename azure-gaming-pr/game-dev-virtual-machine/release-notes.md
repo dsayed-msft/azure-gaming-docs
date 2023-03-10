@@ -14,6 +14,12 @@ In this article, learn about updates for Azure Game Development Virtual Machine.
 
 Due to the rapidly evolving needs and packages updates, we target to release new Azure Game Development Virtual Machine images every month. Azure portal users will always find the latest image available for provisioning the Game Development Virtual Machine. For CLI or ARM users, we keep images of individual versions available for twelve months. After that period, a particular version of image is no longer available for provisioning.
 
+## February 2023
+- Offered Windows 11 and Server 2022 images with Visual Studio 2022 and Unreal Engine 5.1 built-in.
+- Supported generation 2 VMs on Windows 11 based SKUs .
+- Supported Azure Spot Virtual Machines.
+- Mulitple performance improvements and bug fixes.   
+
 ## September 2022
 
 - Integrated [PIX](https://devblogs.microsoft.com/pix/introduction/).
