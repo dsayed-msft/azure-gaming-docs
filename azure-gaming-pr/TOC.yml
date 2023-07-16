@@ -55,7 +55,8 @@
         href: reference-architectures/azurecloudbuilds-9-troubleshooting.md
   - name: AI in Games
     items:
-    - name: Azure Cognitive Services
+    - name: Azure AI services
+      displayName: cognitive
       href: ai/azure-cognitive-services.md
   - name: Game server hosting
     items:

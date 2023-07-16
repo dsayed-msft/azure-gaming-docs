@@ -2,9 +2,9 @@
 title: Azure AI services
 description: Infuse your games with intelligent algorithms to see, hear, speak, understand and interpret your player needs through natural methods of communication
 author: joannaleecy
-keywords: 
+keywords: cognitive
 ms.topic: overview
-ms.date: 7/15/2023
+ms.date: 7/18/2023
 ms.author: joanlee
 ms.prod: azure-gaming
 ---
@@ -15,7 +15,7 @@ ms.prod: azure-gaming
 
 * [Text Translation](/azure/ai-services/speech-service/gaming-concepts)
   * Translate text between languages so players across the world can communicate with each other in their native language.
-* [Speech to text](/azure/ai-services/speech-service/gaming-concepts) and [Text-to-Speech](/azure/ai-services/speech-service/gaming-concepts)
+* [Speech to text](/azure/ai-services/speech-service/gaming-concepts) and [Text to speech](/azure/ai-services/speech-service/gaming-concepts)
   * Bring everyone into the conversation by synthesizing audio from text. Or by displaying text from audio.  
   * Game dialogue prototyping to shorten the amount of time and money spent in product to get the game to market sooner, you can rapidly swap lines of dialog and listen to variations in real-time to iterate the game content.
   * Make the game more accessible. Players can listen to storylines and instructions in their preferred language. This enables players who are unable to read or read text in a particular language, including young players who haven't learnt to read and write, to be able to play your game.

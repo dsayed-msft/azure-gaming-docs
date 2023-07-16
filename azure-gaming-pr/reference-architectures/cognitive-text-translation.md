@@ -2,7 +2,7 @@
 title: Text Translation
 description: It's not unusual that players in the same game session natively speak different languages and may appreciate receiving both the original message and its translation.
 author: BrianPeek
-keywords: 
+keywords: cognitive
 ms.topic: reference-architecture
 ms.date: 3/14/2019
 ms.author: brpeek
@@ -21,16 +21,16 @@ This article will describe the architecture used in [this sample on GitHub](http
 
 ## Architecture Services
 
-- [Translator Text](/azure/cognitive-services/translator/translator-info-overview) - Translates text to multiple languages on the fly.
+- [Azure AI Translator](/azure/ai-services/translator/translator-info-overview) - Translates text to multiple languages on the fly.
 - [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) - (Optional) connects the player to the most appropiate regional zone based on latency where the chat servers would be.
 - [Event Hub](https://azure.microsoft.com/services/event-hubs/) - A service tailored for real-time receiving and processing of a large number of events (chat strings in this case), in order, with little configuration or management overhead.
-- [Azure Function](/azure/azure-functions/functions-overview) - Serverless compute service to run code on-demand -- in this case, code that invokes the different cognitive services.
+- [Azure Function](/azure/azure-functions/functions-overview) - Serverless compute service to run code on-demand -- in this case, code that invokes the different Azure AI services.
 
 ## Architecture Considerations
 
 You only need to create a single Event Hub namespace that will contain the 2 Event Hubs used for sending and receiving messages, respectively.
 
-Not every language is supported by the service today.  Please see the [language and region support for the Translator Text API](/azure/cognitive-services/translator/language-support) documentation for what languages and regions are supported.
+For text translation not every language is supported by the service today.  Please see the [language and region support for Azure AI Language](/azure/ai-services/translator/language-support) documentation for what languages and regions are supported.
 
 ## Deployment Template
 
@@ -48,12 +48,12 @@ Have a look at the [general guidelines documentation](./general-guidelines.md#na
 > - [Create an Event Hub using Azure Resource Manager template](/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub)
 > - [Automate resource deployment for your function app in Azure Functions](/azure/azure-functions/functions-infrastructure-as-code)
 
-There are two types of Azure Cognitive Services subscriptions. The first is a subscription to a single service, such as Computer Vision or the Speech Services. A single-service subscription is restricted to just that service. The second type is a multi-service subscription. This allows you to use a single subscription for multiple Azure Cognitive Services. This option also consolidates billing. To make this reference architecture as modular as possible, the cognitive services are each setup as a single service.
+There are two types of Azure AI services subscriptions. The first is a subscription to a single service, such as Azure AI Vision or Azure AI Speech. A single-service subscription is restricted to just that service. The second type is a multi-service subscription. This allows you to use a single subscription for multiple Azure AI services. This option also consolidates billing. To make this reference architecture as modular as possible, the Azure AI services are each setup as a single service.
 
 Finally, add these Function [application settings](/azure/azure-functions/functions-how-to-use-azure-function-app-settings) so the sample project can connect to the Azure services:
 
-- EVENTHUB_CONNECTION_STRING - The [connection string](/azure/event-hubs/event-hubs-get-connection-string) to the Azure Event Hub namespace that was created
-- TRANSLATORTEXT_KEY - The [access key](/azure/azure-functions/functions-how-to-use-azure-function-app-settings) used to access the Azure Translator Text Cognitive Service that was created
+- EVENTHUB_CONNECTION_STRING - The [connection string](/azure/event-hubs/event-hubs-get-connection-string) to the Azure Event Hub namespace that was created.
+- TRANSLATORTEXT_KEY - The [access key](/azure/azure-functions/functions-how-to-use-azure-function-app-settings) used to access the Azure AI Language resource that was created.
 
 >[!TIP]
 > To run the Azure Functions locally, update the *local.settings.json* file with these same app settings.
@@ -64,12 +64,12 @@ Finally, add these Function [application settings](/azure/azure-functions/functi
 1. The player's client sends a chat message to the chat server over the secure connection previously created. The player's process in the chat server receives the message, decrypts it, and parses it.
 1. Standard validations are run, and the chat server calls the **Azure Event Hub** service, as it keeps the message order.
 1. The **Azure Event Hub** serves as an input trigger for an **Azure Function**.
-1. The Azure Function invokes the **Azure Text Translator** service that reviews the message sent by the player and returns an result.
+1. The Azure Function invokes the **Azure AI Translator** service that reviews the message sent by the player and returns an result.
 1. Another **Azure Event Hub** is set as the output for the **Azure Function**.
 1. The chat server receives the outcome from the **Azure Event Hub**.
-1. Optionally the chat server saves both the original message and the translation from the **Azure Text Translator service** in persistent storage like **Azure Data Lake Storage**.
+1. Optionally the chat server saves both the original message and the translation from the **Azure AI Translator** service in persistent storage like **Azure Data Lake Storage**.
 1. If the result was stored, optionally save into **Azure Data Lake Analytics** for analysis purposes.
-1. The result from the **Azure Text Translator** service is then sent to the recipient players' pertinent processes in the chat server. The processes run further validations on the message, serialize it and send it to the recipient players' devices over their secure connections. Finally it's displayed in the chat screen.
+1. The result from the **Azure AI Translator** service is then sent to the recipient players' pertinent processes in the chat server. The processes run further validations on the message, serialize it and send it to the recipient players' devices over their secure connections. Finally it's displayed in the chat screen.
 
 ### Azure Event Hubs
 
@@ -84,21 +84,21 @@ When an [Event Hubs trigger Function](/azure/azure-functions/functions-bindings-
     public static string Run([EventHubTrigger("ehigce-input", Connection = "EventHubConnectionAppSetting")] string chatString, ILogger log)
 ```
 
-Check out the [common causes and solutions for 401 Access Denied errors when calling Cognitive Services](https://blogs.msdn.microsoft.com/kwill/2017/05/17/http-401-access-denied-when-calling-azure-cognitive-services-apis/).
+Check out the [common causes and solutions for 401 Access Denied errors when calling Azure AI services](https://blogs.msdn.microsoft.com/kwill/2017/05/17/http-401-access-denied-when-calling-azure-cognitive-services-apis/).
 
 ## Security considerations
 
-Do not hard-code any Event Hub or Cognitive Services connection strings into the source of the Function.  Instead, at a minimum, leverage the [Function App Settings](/azure/azure-functions/functions-how-to-use-azure-function-app-settings#manage-app-service-settings) or, for even stronger security, use [Key Vault](/azure/key-vault/) instead. There is a tutorial explaining how to [create a Key Vault](https://blogs.msdn.microsoft.com/benjaminperkins/2018/06/13/create-an-azure-key-vault-and-secret/), how to [use a managed service identity with a Function](https://blogs.msdn.microsoft.com/benjaminperkins/2018/06/13/using-managed-service-identity-msi-with-and-azure-app-service-or-an-azure-function/) and finally how to [read the secret stored in Key Vault from a Function](https://blogs.msdn.microsoft.com/benjaminperkins/2018/06/13/how-to-connect-to-a-database-from-an-azure-function-using-azure-key-vault/).
+Do not hard-code any Event Hub or Azure AI services connection strings into the source of the Function.  Instead, at a minimum, leverage the [Function App Settings](/azure/azure-functions/functions-how-to-use-azure-function-app-settings#manage-app-service-settings) or, for even stronger security, use [Key Vault](/azure/key-vault/) instead. There is a tutorial explaining how to [create a Key Vault](https://blogs.msdn.microsoft.com/benjaminperkins/2018/06/13/create-an-azure-key-vault-and-secret/), how to [use a managed service identity with a Function](https://blogs.msdn.microsoft.com/benjaminperkins/2018/06/13/using-managed-service-identity-msi-with-and-azure-app-service-or-an-azure-function/) and finally how to [read the secret stored in Key Vault from a Function](https://blogs.msdn.microsoft.com/benjaminperkins/2018/06/13/how-to-connect-to-a-database-from-an-azure-function-using-azure-key-vault/).
 
 Review the [Event Hub authentication and security model overview](/azure/event-hubs/event-hubs-authentication-and-security-model-overview) and put it into practice to ensure only your chat server can talk to the Event Hub.
 
-The Translator Text API can translate behind firewalls using either domain-name or IP filtering. Domain-name filtering is the preferred method. We do not recommend running Microsoft Translator from behind an IP filtered firewall as the setup is likely to break in the future without notice. See [how to translate behind IP firewalls with the Translator Text API](/azure/cognitive-services/translator/firewalls) for all the details.
+The Translator Text API can translate behind firewalls using either domain-name or IP filtering. Domain-name filtering is the preferred method. We do not recommend running Microsoft Translator from behind an IP filtered firewall as the setup is likely to break in the future without notice. See [how to translate behind IP firewalls with the Translator Text API](/azure/ai-services/translator/firewalls) for all the details.
 
 ## Scaling
 
 There are two points that could become a bottleneck in this architecture that you should plan for:
 
-1. Cognitive Services scale well but they are throttled by default. Reach out to Azure support if you are planning to make use of them in large scale to increase capacity.
+1. Azure AI services scale well but they are throttled by default. Reach out to Azure support if you are planning to make use of them in large scale to increase capacity.
 1. The chat server receiving the Azure Event Hub responses will need to scale. Spin up enough virtual machines to address the demand.
 
 ## Alternatives
@@ -114,6 +114,6 @@ You are responsible for the cost of the Azure services used while running these 
 - [Azure Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager/)
 - [Azure Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/)
 - [Azure Function](https://azure.microsoft.com/pricing/details/functions/)
-- [Azure Translator Text](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
+- [Azure AI Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)
 
 You can also use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to configure and estimate the costs for the Azure services that you are planning to use.
